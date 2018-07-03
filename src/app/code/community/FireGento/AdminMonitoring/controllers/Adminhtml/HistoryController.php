@@ -36,7 +36,7 @@ class FireGento_AdminMonitoring_Adminhtml_HistoryController extends Mage_Adminht
     protected function _initAction()
     {
         $this->loadLayout();
-        $this->_setActiveMenu('firegento_adminmonitoring/history');
+        $this->_setActiveMenu('system/history');
         $this->_addBreadcrumb(
             $this->getMonitoringHelper()->__('Admin Monitoring'),
             $this->getMonitoringHelper()->__('History')
@@ -116,5 +116,15 @@ class FireGento_AdminMonitoring_Adminhtml_HistoryController extends Mage_Adminht
     public function getMonitoringHelper()
     {
         return Mage::helper('firegento_adminmonitoring');
+    }
+
+    /**
+     * Check is allowed access to action - needed afer security patch SUPEE-6285
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('system/history');
     }
 }

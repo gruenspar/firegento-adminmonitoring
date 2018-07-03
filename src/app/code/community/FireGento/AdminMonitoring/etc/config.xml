@@ -21,7 +21,7 @@
 <config>
     <modules>
         <FireGento_AdminMonitoring>
-            <version>1.2.1</version>
+            <version>1.2.3</version>
         </FireGento_AdminMonitoring>
     </modules>
     <global>
@@ -91,6 +91,14 @@
                     </firegento_adminmonitoring>
                 </observers>
             </model_delete_after>
+            <category_move>
+                <observers>
+                    <firegento_adminmonitoring>
+                        <class>firegento_adminmonitoring/observer_category_move</class>
+                        <method>catalogCategoryMove</method>
+                    </firegento_adminmonitoring>
+                </observers>
+            </category_move>
             <catalog_product_attribute_update_before>
                 <observers>
                     <firegento_adminmonitoring>
@@ -135,6 +143,22 @@
                     </firegento_adminmonitoring>
                 </observers>
             </firegento_adminmonitoring_log>
+            <firegento_adminmonitoring_enrich_model_content>
+                <observers>
+                    <firegento_adminmonitoring>
+                        <class>FireGento_AdminMonitoring_Model_Observer_Enrich_Content</class>
+                        <method>enrich</method>
+                    </firegento_adminmonitoring>
+                </observers>
+            </firegento_adminmonitoring_enrich_model_content>
+            <firegento_adminmonitoring_enrich_model_orig_content>
+                <observers>
+                    <firegento_adminmonitoring>
+                        <class>FireGento_AdminMonitoring_Model_Observer_Enrich_OrigContent</class>
+                        <method>enrich</method>
+                    </firegento_adminmonitoring>
+                </observers>
+            </firegento_adminmonitoring_enrich_model_orig_content>
             <admin_session_user_login_success>
                 <observers>
                     <firegento_adminmonitoring>
@@ -198,7 +222,7 @@
     <phpunit>
         <suite>
             <modules>
-                <FireGento_AdminMonitoring />
+                <FireGento_AdminMonitoring/>
             </modules>
         </suite>
     </phpunit>
